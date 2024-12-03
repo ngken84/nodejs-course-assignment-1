@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-course-assignment-1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -w",
+    "start": "node ./dist/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.10.1"
+  }
+}
