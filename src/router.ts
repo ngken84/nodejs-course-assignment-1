@@ -13,6 +13,20 @@ export const requestHandler = (req : IncomingMessage, res: ServerResponse) => {
         res.write("<body>");
         res.write("<form action='/create-user' method='POST'><input type='text' name='username'/><button type='submit'>Add User</button></form>");
         res.write("<div>");
+        res.write("<a href='/users'>Go to Users</a>");
+        res.write("</div>");
+        res.write("</body>");
+        res.write("</html>");
+        return res.end();
+    }
+    
+    if(url === '/users' && method === 'GET') {
+        res.setHeader("Content-Type", "text/html");
+        res.write("<html>");
+        writeHeader(res, "Users!");
+        res.write("<body>")
+        res.write("<a href='/'>Go to Home</a>");
+        res.write("<div>");
         res.write("<ul>");
         userList.forEach((value: string) => {
             writeListItem(res, value);
