@@ -11,6 +11,7 @@ export const requestHandler = (req : IncomingMessage, res: ServerResponse) => {
         res.write("<html>");
         writeHeader(res, "Welcome!");
         res.write("<body>");
+        res.write("<h1>Welcome to Node JS Assignment 1</h1>");
         res.write("<form action='/create-user' method='POST'><input type='text' name='username'/><button type='submit'>Add User</button></form>");
         res.write("<div>");
         res.write("<a href='/users'>Go to Users</a>");
@@ -43,7 +44,7 @@ export const requestHandler = (req : IncomingMessage, res: ServerResponse) => {
         req.on('data', (chunk: Uint8Array) => {
             body.push(chunk);
         });
-        req.on('end', () => {
+        return req.on('end', () => {
             const parsedBody = Buffer.concat(body).toString();
             const userName = parsedBody.split("=")[1];
             userList.push(userName);
